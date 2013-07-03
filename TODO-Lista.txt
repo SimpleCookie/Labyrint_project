@@ -1,0 +1,28 @@
+Lista på vad som behöver göras:
+		I terminalen/consolen:
+  - Main-loop till spelet
+  		initierar charactär och spel osv
+  		loopar:
+  			check_events
+  			print_maze
+  			updatera viktig information så som items osv
+  - karaktärens egenskaper/properties i klass-filen
+  		position
+  		TECKEN
+  		WALK_UP
+  		WALK_DOWN
+  		WALK_LEFT
+  		WALK_RIGHT
+  		PICKUP
+  - hinder och items
+  		Coins
+  Kan du tänka dig denna uppgift? - Förflyttning och events som händer under spelets gång
+  		Karakrären vill flytta sig
+  		karakrären är framme vid målet
+
+  - En storyline??? - kanske
+
+  		Det grafiska:
+  - Design på labyrintens olika banor
+  - modeller för de karaktärer som finns/ska finnas
+  - tema och layout för menyer mm
