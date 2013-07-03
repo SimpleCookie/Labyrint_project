@@ -14,7 +14,7 @@ const int Maze::STARTposx = 1;
 const int Maze::STARTposy = 1;
 
 
-void Maze::Create_maze(Uint row, Uint col){
+Maze & Maze::Create_maze(Uint row, Uint col){
 	if (row%2 == 0)
 		row++;
 	if (col%2 == 0)
@@ -29,6 +29,7 @@ void Maze::Create_maze(Uint row, Uint col){
 	// Set visited cells to 1
 	VisitedCells = 1;
 	Generate_maze(CurrentCell);
+	return *this;
 }
 
 void Maze::Generate_maze(std::pair<Uint, Uint> CurrentCell){
@@ -163,7 +164,7 @@ void Maze::Crush_wall(std::pair<Uint, Uint> CurrentCell, int dir){
 	}
 }
 
-void Maze::Print_maze(std::string file) const{
+Maze & Maze::Print_maze(std::string file){
 	std::ofstream outfile(file.c_str());
 	// if file is open, write to file otherwise write to console
 	std::ostream &out= (!outfile.is_open()? std::cout : outfile);
@@ -180,6 +181,7 @@ void Maze::Print_maze(std::string file) const{
 	}
 	if(outfile.is_open())
 		outfile.close();
+	return *this;
 }
 
 bool Maze::Solve(int x, int y){
