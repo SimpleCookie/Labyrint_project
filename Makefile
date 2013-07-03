@@ -1,12 +1,12 @@
-FILES = main.cpp Maze.cpp Inputs.cpp 
-OUT_EXE = out_Executable
+CPPS = main.cpp Character.cpp Game.cpp Maze/Maze.cpp Inputs.cpp Linux/Linux.cpp
+HEADERS =       Maze/Maze.h   Inputs.h   Character.h   Game.h   Linux/Linux.h
 
-all: $(OUT_EXE)
+all: maze_game
 
-$(OUT_EXE): $(FILES) Maze.h Arg_handles.h Inputs.h
-	g++ -std=c++11 -o $(OUT_EXE) $(FILES)
-clean:
-	rm -f *.o core
+maze_game: $(CPPS) $(HEADERS)
+	g++ -std=c++11 -o maze_game $(CPPS)
 
-rebuild: clean $(OUT_EXE)
-	./$(OUT_EXE)
+run: 
+	./maze_game
+LIBS = Maze/Maze.cpp Inputs.cpp Linux/Linux.cpp
+# TODO: make libs

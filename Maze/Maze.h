@@ -14,11 +14,11 @@ public:
 
 	
 	// sets total cells and fill the map with WALLS, calls Generate_maze	
-	void Create_maze(unsigned int row, unsigned int col);
+	Maze & Create_maze(unsigned int row, unsigned int col);
 
 	// Self explantory, prints the maze
-	//void Print_maze(std::string file = "no!ne") const;
-	void Print_maze(std::string file = "") const;
+	//void Print_maze(std::string file = "no!ne");
+	Maze & Print_maze(std::string file = "");
 
 	// Solves the maze with recurison
 	bool Solve(int x = 1, int y = 1);
@@ -26,6 +26,21 @@ public:
 	// Reads a file into a vector<vector<char> >
 	bool Read_file(std::string file);
 
+	std::vector<char> operator [](int i) const{
+		return Map[i];
+	}
+	std::vector<char> &operator [](int i){
+		return Map[i];
+	}
+
+	int Get_height(){
+		return Map.size();
+	}
+	int Get_width(){
+		if(Map.size())
+			return Map[0].size();
+		return 0;
+	}
 
 private:
 	// Pair<int, int> for the current cell
